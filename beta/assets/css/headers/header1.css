@@ -277,6 +277,26 @@
 	filter:none !important;
 }
 
+.dropdown-menu li.sub-heading a {
+	font-weight: 700;
+	font-size: 11px;
+	border-bottom:solid 2px #333;
+	padding: 1px 5px;
+
+}
+.dropdown-menu li.sub-heading a:hover,
+.dropdown-menu li.sub-heading a:focus {
+  color:#687074 !important;
+  background:#ffffff !important;
+    -webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -o-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
+	filter:none !important;
+}
+
+
+
 .dropdown-menu .active > a {
 	color:#ffffff !important;
   	background:#687074 !important;
