@@ -8,13 +8,13 @@ var Contact = function () {
 			$(document).ready(function(){
 			  map = new GMaps({
 				div: '#map',
-				lat: -13.004333,
-				lng: -38.494333
+				lat: 26.509343,
+				lng: 80.234511
 			  });
 			   var marker = map.addMarker({
-		            lat: -13.004333,
-					lng: -38.494333,
-		            title: 'Loop, Inc.'
+		            lat: 26.509343,
+				    lng: 80.234511,
+		            title: 'SPO, IIT Kanpur'
 		        });
 			});
         }
