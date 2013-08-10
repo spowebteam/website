@@ -21,8 +21,11 @@ body {
     line-height:1.6;
 	background:#fff;
 }
+address {
+    font-family:'Ubuntu',Arial,serif;
+}
 
-p, a, li { 
+p, a,li { 
 	color:#555;
 	line-height:1.6;
 	font-family:'Ubuntu',Arial,serif;
