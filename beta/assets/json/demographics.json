@@ -1,0 +1,58 @@
+
+{
+ "name": " ",
+ "children": [
+  {
+   "name": "Tech",
+   "children": [
+    {
+     "name": "AE",
+     "children": [
+      {"name": "BTech", "size": 20},
+      {"name": "Dual", "size": 13},
+      {"name": "MTech", "size": 20}
+     ]
+    },
+    {
+     "name": "BSBE",
+     "children": [
+      {"name": "BTech", "size": 24},
+      {"name": "MTech", "size": 24}
+     ]
+    },
+    {
+     "name": "ChE",
+     "children": [
+      {"name": "BTech", "size": 39},
+      {"name": "Dual","size": 16},
+      {"name": "MTech","size":20}
+     ]
+    },
+    {
+     "name": "CE",
+     "children": [
+      {"name": "BTech", "size": 52},
+      {"name": "Dual","size": 30},
+      {"name": "MTech","size":33}
+     ]
+    },
+    {
+     "name": "CSE",
+     "children": [
+      {"name": "BTech", "size": 63},
+      {"name": "Dual","size": 39},
+      {"name": "MTech","size":43}
+     ]
+    },
+    {
+     "name": "EE",
+     "children": [
+      {"name": "BTech", "size": 64},
+      {"name": "Dual","size": 36},
+      {"name": "MTech","size":98}
+     ]
+    }
+   ]
+  }
+ ]
+}
