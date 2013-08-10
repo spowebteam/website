@@ -51,6 +51,99 @@
       {"name": "Dual","size": 36},
       {"name": "MTech","size":98}
      ]
+    },
+    {
+     "name": "ME",
+     "children": [
+      {"name": "BTech", "size": 39},
+      {"name": "Dual","size": 29},
+      {"name": "MTech","size":16}
+     ]
+    },
+    {
+     "name": "MME",
+     "children": [
+      {"name": "BTech", "size": 71},
+      {"name": "MTech","size":13}
+     ]
+    },
+    {
+     "name": "EEM",
+     "children": [
+      {"name": "MTech","size":46}
+     ]
+    },
+    {
+     "name": "Nuclear",
+     "children": [
+      {"name": "MTech","size":3}
+     ]
+    },
+    {
+     "name": "Laser",
+     "children": [
+      {"name": "MTech","size":13}
+     ]
+    },
+    {
+     "name": "MSE",
+     "children": [
+      {"name": "MTech","size":13}
+     ]
+    }
+   ]
+  },
+  {
+  "name": "Sciences",
+  "children": [
+    {
+     "name": "Maths",
+     "children": [
+      {"name": "MSc.", "size": 37}
+     ]
+    },
+    {
+     "name": "MSC",
+     "children": [
+      {"name": "Int. MSc.", "size": 35}
+     ]
+    },
+    {
+     "name": "Chem",
+     "children": [
+      {"name": "MSc.", "size": 11},
+      {"name": "Int. MSc.", "size": 9}
+     ]
+    },
+    {
+     "name": "Phy",
+     "children": [
+      {"name": "MSc.", "size": 5},
+      {"name": "Int. MSc.", "size": 6}
+     ]
+    },
+    {
+     "name": "Econ",
+     "children": [
+      {"name": "MSc.", "size": 30}
+     ]
+    }
+   ]
+  },
+  {
+   "name":"Others",
+   "children":[
+    {
+     "name": "Design",
+     "children": [
+      {"name":"MDes.","size": 18}
+     ]
+    },
+    {
+     "name": "Mgmnt.",
+     "children": [
+      {"name":"MBA","size": 54}
+     ]
     }
    ]
   }
