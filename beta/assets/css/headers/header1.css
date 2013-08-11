@@ -136,6 +136,11 @@
 	position:absolute;
 	top:-5px;
 	left:0;
+	font-size: 18px;
+	/*max-height:40px;*/
+}
+#logo-header {
+	max-height: 50px;
 }
 
 /*Menu*/
