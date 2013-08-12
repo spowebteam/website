@@ -1,7 +1,7 @@
 #!/bin/bash
-FILES=./*.jpg
+FILES=./*.png
 for f in $FILES
 do
   echo "Processing $f file..."
-  convert "$f" "${f%.jpg}.png"
+  convert "$f" -colorspace Gray "${f%.png}_gray.png"
 done
