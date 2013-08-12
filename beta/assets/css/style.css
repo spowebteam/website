@@ -998,7 +998,8 @@ blockquote:hover {
 /*Registration and Login Page
 ------------------------------------*/
 .reg-page,
-.login-page  {
+.login-page,
+.message-page {
 	overflow:hidden;
 	margin:0 auto;
 	background:#fcfcfc;
@@ -1010,6 +1011,11 @@ blockquote:hover {
 .reg-page {
 	min-width:30%;
 	max-width:30%;
+	padding:30px 50px 30px;
+}
+.message-page {
+	min-width:40%;
+	max-width:80%;
 	padding:30px 50px 30px;
 }
 .reg-page h3 {
