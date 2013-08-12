@@ -1869,3 +1869,16 @@ i.style-switcher-btn-option:hover {
 	padding: 7px;
 	text-shadow: none !important;
 }
+
+.white-gray div{
+	padding-top: 10px;
+	padding-right:10px;
+	padding-bottom: 10px;
+	
+}
+
+.white-gray div:nth-child(odd){
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	background: #f9f9f9;
+}
