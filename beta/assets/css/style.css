@@ -1414,6 +1414,13 @@ ul.blog-tags a i {
 	color:white;
 }
 
+.one-red li,
+.one-red p,
+.one-red h1 {
+	/*text-shadow: #79381c 0.1em 0.1em 0em;*/
+	color:white;
+}
+
 
 .one-page .one-green {
 	background: #2ecc71;
