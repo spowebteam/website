@@ -1405,12 +1405,16 @@ ul.blog-tags a i {
 	background: #e74c3c;
 }
 .one-page .one-orange {
-	background: #e67e22;
+	background: #d85a28;
+}
+.one-orange li,
+.one-orange p,
+.one-orange h1 {
+	/*text-shadow: #79381c 0.1em 0.1em 0em;*/
+	color:white;
 }
 
-.one-orange li {
-	color: white;
-}
+
 .one-page .one-green {
 	background: #2ecc71;
 }
