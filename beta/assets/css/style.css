@@ -1398,11 +1398,18 @@ ul.blog-tags a i {
 .one-page .one-blue {
 	background: #3498db;
 }
+
+
+
 .one-page .one-red {
 	background: #e74c3c;
 }
 .one-page .one-orange {
 	background: #e67e22;
+}
+
+.one-orange li {
+	color: white;
 }
 .one-page .one-green {
 	background: #2ecc71;
