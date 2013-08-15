@@ -131,19 +131,19 @@ path {
         <div class="container">
             <h1>Graduating Batch Demographics
               <div class="pull-right">
-                <a class="btn-u" id="btndept" style="width:100px;">By Degree</a>
-                <a class="btn-u" id="btndegree" style="width:100px;">By Dept.</a>
+                <a class="btn-u" id="btndegree" style="width:150px;display:none;">View by Degree</a>
+                <a class="btn-u" id="btndept" style="width:150px;">View by Dept.</a>
                 <br/>
-                <a class="btn-u" id="btnpie" style="width:100px;">Pie Graph</a>
-                <a class="btn-u" id="btnpartition" style="width:100px;">Partition Graph</a>
+                <a class="btn-u" id="btnpie" style="width:150px;">View Pie Graph</a>
+                <a class="btn-u" id="btnpartition" style="width:150px;display:none">View Partition Graph</a>
               </div>
             </h1>
             <div class="span12" id="pie">
-              <div class="pie dept" id="piedept" style="margin:auto;width:700px;"></div>
-              <div class="pie degree" id="piedegree" style="margin:auto;width:700px;"></div>
+              <div class="pie dept" id="piedept" style="margin:auto;width:700px;display:none;"></div>
+              <div class="pie degree" id="piedegree" style="margin:auto;width:700px;display:none;"></div>
             </div>
             <div class="span12" id="partition">
-              <div class="partition dept" id="partitiondept" style="margin:auto;"></div>
+              <div class="partition dept" id="partitiondept" style="margin:auto;display:none;"></div>
               <div class="partition degree" id="partitiondegree" style="margin:auto;"></div>
             </div>
         </div>
@@ -288,7 +288,7 @@ var x = d3.scale.linear()
 var y = d3.scale.pow().exponent(1.3).domain([0, 1]).range([0, radius]);
 var color = d3.scale.category20c();
 
-var svg = d3.select("#piedept").append("svg")
+var svg = d3.select("#piedegree").append("svg")
     .attr("width", width+padding*2)
     .attr("height", height+padding*2)
   .append("g")
@@ -335,8 +335,6 @@ d3.json("assets/json/demographics.json", function(error, root) {
   return angle / Math.PI * 180;
 }
 
-
-
 function click(d) {
   // fade out all text elements
   text.transition().attr("opacity", 0);
@@ -378,6 +376,98 @@ function arcTween(d) {
 
 
 </script>
+<script>
+var svgx = d3.select("#piedept").append("svg")
+    .attr("width", width+padding*2)
+    .attr("height", height+padding*2)
+  .append("g")
+    .attr("transform","translate(" + [radius + padding, radius + padding] + ")");
+
+var partitionx = d3.layout.partition()
+    .sort(null)
+    .value(function(d) { return d.size; });
+var colorx = d3.scale.category20c();
+
+var arcx = d3.svg.arc()
+    .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
+    .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
+    .innerRadius(function(d) { return Math.max(0, y(d.y)); })
+    .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
+
+d3.json("assets/json/specialization.json", function(error, root) {
+  var gx = svgx.selectAll("g")
+      .data(partitionx.nodes(root))
+    .enter().append("g")
+  var pathx = gx.append("path")
+      .attr("d", arcx)
+      .style("fill", function(d) { return colorx((d.children ? d : d.parent).name); })
+      .on("click", clickx);
+
+  var textx=gx.append("text")
+    .attr("x",function(d){return y(d.y);})
+    .attr("dx","6")
+    .attr("dy",".35em")
+    .attr("text-anchor","beggining")
+    .text(function(d) { return d.name+" ("+ d.value +")"; });
+    
+
+  // function click(d) {
+  //   path.transition()
+  //     .duration(750)
+  //     .attrTween("d", arcTween(d));
+  // }
+
+  textx.attr("transform", function(d) { return "rotate(" + computeTextRotation(d)+")"; });
+
+  function computeTextRotation(d) {
+  var angle = x(d.x + d.dx / 2) - Math.PI/2;
+  console.log(angle)
+  return angle / Math.PI * 180;
+}
+
+function clickx(d) {
+  // fade out all text elements
+  textx.transition().attr("opacity", 0);
+
+  pathx.transition()
+    .duration(750)
+    .attrTween("d", arcTween(d))
+    .each("end", function(e, i) {
+        // check if the animated element's data e lies within the visible angle span given in d
+        if (e.x >= d.x && e.x < (d.x + d.dx)) {
+          // get a selection of the associated text element
+          var arcText = d3.select(this.parentNode).select("text");
+          // fade in the text element and recalculate positions
+          arcText.transition().duration(750)
+            .attr("opacity", 1)
+            .attr("transform", function() { return "rotate(" + computeTextRotation(e) + ")" })
+            .attr("x", function(d) { return y(d.y); });
+        }
+    });
+}
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+// Interpolate the scales!
+function arcTweenx(d) {
+  var xd = d3.interpolate(x.domain(), [d.x, d.x + d.dx]),
+      yd = d3.interpolate(y.domain(), [d.y, 1]),
+      yr = d3.interpolate(y.range(), [d.y ? 20 : 0, radius]);
+  return function(d, i) {
+    return i
+        ? function(t) { return arcx(d); }
+        : function(t) { x.domain(xd(t)); y.domain(yd(t)).range(yr(t)); return arcx(d); };
+  };
+}
+
+
+
+
+
+</script>
+
+
 <script type="text/javascript">
 
 var w = 960,
@@ -385,7 +475,7 @@ var w = 960,
     x_part = d3.scale.linear().range([0, w]),
     y_part = d3.scale.linear().range([0, h]);
 
-var vis = d3.select("#partitiondept").append("div")
+var vis = d3.select("#partitiondegree").append("div")
     .attr("class", "chart")
     .style("width", w + "px")
     .style("height", h + "px")
@@ -418,7 +508,7 @@ var g_part = vis.selectAll("g")
        .attr("transform", transform_part)
        .attr("dy", ".35em")
        .style("opacity", function(d) { return d.dx * ky > 12 ? 1 : 0; })
-       .text(function(d) { return d.name; })
+       .text(function(d) { return d.name + ' ('+d.value+')'; })
 
   d3.select(window)
       .on("click", function() { click_part(root); })
@@ -452,5 +542,136 @@ var g_part = vis.selectAll("g")
  });
 
      </script>
+
+
+<script type="text/javascript">
+var wx = 960,
+    hx = 600,
+    x_partx = d3.scale.linear().range([0, wx]),
+    y_partx = d3.scale.linear().range([0, hx]);
+
+
+var visx = d3.select("#partitiondept").append("div")
+    .attr("class", "chart")
+    .style("width", wx + "px")
+    .style("height", hx+ "px")
+    .append("svg:svg")
+    .attr("width", wx)
+    .attr("height", hx);
+
+var partx = d3.layout.partition()
+    .value(function(d) { return d.size; });
+
+var colorpartx = d3.scale.category20c();
+
+d3.json("assets/json/specialization.json", function(root) {
+var g_partx = visx.selectAll("g")
+     .data(partition.nodes(root))
+     .enter().append("svg:g")
+     .attr("transform", function(d) { return "translate(" + x_partx(d.y) + "," + y_partx(d.x) + ")"; })
+     .on("click", click_partx);
+
+   var kxx = wx / root.dx,
+       kyx = hx / 1;
+
+   g_partx.append("svg:rect")
+       .attr("width", root.dy * kxx)
+       .attr("height", function(d) { return d.dx * kyx; })
+       .attr("class", function(d) { return d.children ? "parent" : "child"; })
+       .style("fill", function(d) { return colorpartx((d.children ? d : d.parent).name); });
+
+  g_partx.append("svg:text")
+       .attr("transform", transform_partx)
+       .attr("dy", ".35em")
+       .style("opacity", function(d) { return d.dx * kyx > 12 ? 1 : 0; })
+       .text(function(d) { return d.name + ' ('+d.value+')'; })
+
+  d3.select(window)
+      .on("click", function() { click_partx(root); })
+
+   function click_partx(d) {
+     if (!d.children) return;
+
+     kxx = (d.y ? wx - 40 : wx) / (1 - d.y);
+     kyx = hx / d.dx;
+     x_partx.domain([d.y, 1]).range([d.y ? 40 : 0, wx]);
+     y_partx.domain([d.x, d.x + d.dx]);
+
+     var tx = g_partx.transition()
+         .duration(d3.event.altKey ? 7500 : 750)
+         .attr("transform", function(d) { return "translate(" + x_partx(d.y) + "," + y_partx(d.x) + ")"; });
+
+     tx.select("rect")
+         .attr("width", d.dy * kxx)
+         .attr("height", function(d) { return d.dx * kyx; });
+
+     tx.select("text")
+         .attr("transform", transform_partx)
+         .style("opacity", function(d) { return d.dx * kyx > 12 ? 1 : 0; });
+
+    d3.event.stopPropagation();
+    }
+
+   function transform_partx(d) {
+    return "translate(8," + d.dx * kyx / 2 + ")";
+       }
+ });
+
+     </script>
+<script type="text/javascript">
+
+  $('#btnpie').click(function(){
+    if ($('#btndept').css('display')!='none') {
+      $('.dept').hide();
+      $('.degree').hide();
+      $('#piedegree').show();
+    } else {
+      $('.dept').hide();
+      $('.degree').hide();
+      $('#piedept').show();
+    }
+    $('#btnpie').hide();
+    $('#btnpartition').show();
+  });
+  $('#btnpartition').click(function(){
+    if ($('#btndept').css('display')!='none') {
+      $('.dept').hide();
+      $('.degree').hide();
+      $('#partitiondegree').show();
+    } else {
+      $('.dept').hide();
+      $('.degree').hide();
+      $('#partitiondept').show();
+    }
+    $('#btnpartition').hide();
+    $('#btnpie').show();
+  });
+  $('#btndegree').click(function(){
+    if ($('#btnpie').css('display')!='none') {
+      $('.pie').hide();
+      $('.partition').hide();
+      $('#partitiondegree').show();
+    } else {
+      $('.pie').hide();
+      $('.partition').hide();
+      $('#piedegree').show();
+    }
+    $('#btndegree').hide();
+    $('#btndept').show();
+  });
+  $('#btndept').click(function(){
+    if ($('#btnpie').css('display')!='none') {
+      $('.pie').hide();
+      $('.partition').hide();
+      $('#partitiondept').show();
+    } else {
+      $('.pie').hide();
+      $('.partition').hide();
+      $('#piedept').show();
+    }
+    $('#btndept').hide();
+    $('#btndegree').show();
+  });
+</script>
 </body>
 </html>	

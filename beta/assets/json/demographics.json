@@ -20,9 +20,9 @@
    ]
   },
   {
-  "name": "Integrated",
+   "name": "Integrated",
    "children": [
-   {
+    {
      "name": "Dual",
      "children" : [
       {"name": "AE", "size": 13},
@@ -31,7 +31,7 @@
       {"name": "CSE", "size": 39},
       {"name": "EE", "size": 36},
       {"name": "ME", "size": 29}
-      ]
+     ]
     },
     {
      "name": "Integrated MSc",
@@ -42,10 +42,10 @@
       {"name": "ECO", "size": 30}
       ]
     }    
-    ]
- },
- {
-  "name": "Masters",
+   ]
+  },
+  {
+   "name": "Masters",
    "children": [
     {
      "name": "Mtech",
@@ -61,29 +61,29 @@
       {"name": "Nuclear", "size": 3},
       {"name": "Laser", "size": 13},
       {"name": "MSE", "size": 13}
-      ]
+     ]
     },
     {
-      "name": "Msc",
-      "children" : [
-       {"name": "MSC", "size": 37},
-       {"name": "CHM", "size": 11},
-       {"name": "Phy", "size": 5}
-      ]
+     "name": "Msc",
+     "children" : [
+      {"name": "MSC", "size": 37},
+      {"name": "CHM", "size": 11},
+      {"name": "Phy", "size": 5}
+     ]
     },
     {
-      "name": "MBA",
-      "children" : [
-      {"name": "MBA", "size":54}
-      ]
+     "name": "MBA",
+     "children" : [
+      {"name": "MBA", "size": 54}
+     ]
     },
     {
-      "name": "MDes",
-      "children" : [
-      {"name": "MDes", "size":18}
-      ]
+     "name": "MDes",
+     "children" : [
+      {"name": "MDes", "size": 18}
+     ]
     }
-    ]
- }
+   ]
+  }
  ]
 }
