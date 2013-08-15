@@ -1,151 +1,89 @@
-
 {
  "name": " ",
  "children": [
   {
-   "name": "Tech",
+   "name": "Bachelors",
    "children": [
     {
-     "name": "AE",
-     "children": [
-      {"name": "BTech", "size": 20},
-      {"name": "Dual", "size": 13},
-      {"name": "MTech", "size": 20}
-     ]
-    },
-    {
-     "name": "BSBE",
-     "children": [
-      {"name": "BTech", "size": 24},
-      {"name": "MTech", "size": 24}
-     ]
-    },
-    {
-     "name": "ChE",
-     "children": [
-      {"name": "BTech", "size": 39},
-      {"name": "Dual","size": 16},
-      {"name": "MTech","size":20}
-     ]
-    },
-    {
-     "name": "CE",
-     "children": [
-      {"name": "BTech", "size": 52},
-      {"name": "Dual","size": 30},
-      {"name": "MTech","size":33}
-     ]
-    },
-    {
-     "name": "CSE",
-     "children": [
-      {"name": "BTech", "size": 63},
-      {"name": "Dual","size": 39},
-      {"name": "MTech","size":43}
-     ]
-    },
-    {
-     "name": "EE",
-     "children": [
-      {"name": "BTech", "size": 64},
-      {"name": "Dual","size": 36},
-      {"name": "MTech","size":98}
-     ]
-    },
-    {
-     "name": "ME",
-     "children": [
-      {"name": "BTech", "size": 39},
-      {"name": "Dual","size": 29},
-      {"name": "MTech","size":16}
-     ]
-    },
-    {
-     "name": "MME",
-     "children": [
-      {"name": "BTech", "size": 71},
-      {"name": "MTech","size":13}
-     ]
-    },
-    {
-     "name": "EEM",
-     "children": [
-      {"name": "MTech","size":46}
-     ]
-    },
-    {
-     "name": "Nuclear",
-     "children": [
-      {"name": "MTech","size":3}
-     ]
-    },
-    {
-     "name": "Laser",
-     "children": [
-      {"name": "MTech","size":13}
-     ]
-    },
-    {
-     "name": "MSE",
-     "children": [
-      {"name": "MTech","size":13}
+     "name": "Btech",
+     "children" : [
+      {"name": "AE", "size": 20},
+      {"name": "BSBE", "size": 24},
+      {"name": "ChE", "size": 39},
+      {"name": "CE", "size": 52},
+      {"name": "CSE", "size": 63},
+      {"name": "EE", "size": 64},
+      {"name": "ME", "size": 39},
+      {"name": "MME", "size": 71}
      ]
     }
    ]
   },
   {
-  "name": "Sciences",
-  "children": [
-    {
-     "name": "Maths",
-     "children": [
-      {"name": "MSc.", "size": 37}
-     ]
+  "name": "Integrated",
+   "children": [
+   {
+     "name": "Dual",
+     "children" : [
+      {"name": "AE", "size": 13},
+      {"name": "ChE", "size": 16},
+      {"name": "CE", "size": 30},
+      {"name": "CSE", "size": 39},
+      {"name": "EE", "size": 36},
+      {"name": "ME", "size": 29}
+      ]
     },
     {
-     "name": "MSC",
-     "children": [
-      {"name": "Int. MSc.", "size": 35}
-     ]
+     "name": "Integrated MSc",
+     "children" : [
+      {"name": "MSC", "size": 35},
+      {"name": "CHM", "size": 9},
+      {"name": "Phy", "size": 6},
+      {"name": "ECO", "size": 30}
+      ]
+    }    
+    ]
+ },
+ {
+  "name": "Masters",
+   "children": [
+    {
+     "name": "Mtech",
+     "children" : [
+      {"name": "AE", "size": 20},
+      {"name": "BSBE", "size": 24},
+      {"name": "ChE", "size": 20},
+      {"name": "CE", "size": 33},
+      {"name": "CSE", "size": 43},
+      {"name": "EE", "size": 98},
+      {"name": "ME", "size": 16},
+      {"name": "EEM", "size": 46},
+      {"name": "Nuclear", "size": 3},
+      {"name": "Laser", "size": 13},
+      {"name": "MSE", "size": 13}
+      ]
     },
     {
-     "name": "Chem",
-     "children": [
-      {"name": "MSc.", "size": 11},
-      {"name": "Int. MSc.", "size": 9}
-     ]
+      "name": "Msc",
+      "children" : [
+       {"name": "MSC", "size": 37},
+       {"name": "CHM", "size": 11},
+       {"name": "Phy", "size": 5}
+      ]
     },
     {
-     "name": "Phy",
-     "children": [
-      {"name": "MSc.", "size": 5},
-      {"name": "Int. MSc.", "size": 6}
-     ]
+      "name": "MBA",
+      "children" : [
+      {"name": "MBA", "size":54}
+      ]
     },
     {
-     "name": "Econ",
-     "children": [
-      {"name": "MSc.", "size": 30}
-     ]
+      "name": "MDes",
+      "children" : [
+      {"name": "MDes", "size":18}
+      ]
     }
-   ]
-  },
-  {
-   "name":"Others",
-   "children":[
-    {
-     "name": "Design",
-     "children": [
-      {"name":"MDes.","size": 18}
-     ]
-    },
-    {
-     "name": "Mgmnt.",
-     "children": [
-      {"name":"MBA","size": 54}
-     ]
-    }
-   ]
-  }
+    ]
+ }
  ]
 }
