@@ -1,0 +1,26 @@
+.clear {
+	clear: both;
+}
+.head {
+	padding: 0px 0px 15px 0px;
+	float: left;
+	width: 385px;
+}
+.head img {
+	float: left;
+	width: 105px;
+	height: 105px;
+	padding:0px 30px;
+}
+.details {
+	float: left;
+	margin: 0px;
+	display: block;
+}
+.name {
+	font-size: 15px;
+	font-weight: bold;
+}
+.position {
+	font-weight: bold;
+}
